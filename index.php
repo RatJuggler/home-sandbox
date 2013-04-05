@@ -18,6 +18,9 @@
         right: 0;
         z-index: 9999;
       }
+      .hero-unit {
+        padding: 40px;
+      }
       .rat-size {
         width: 250px;
         height: 250px;
@@ -63,7 +66,7 @@
 
   <body>
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -76,6 +79,7 @@
             <ul class="nav">
               <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
               <li><a href="#about">About</a></li>
+              <li><a href="#content">Content</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -149,6 +153,9 @@
             <p><a class="btn" href="http://goqr.me/">Details here <i class="icon-external-link"></i></a></p>
           </div>
           <div class="span4">
+            <h2><i class="icon-tablet"></i> Favicon</h2>
+            <p>As well as supplying several different favicon sizes I've also included a fancy icon, and tweaked the settings, for iOS users. This will allow them to add a desktop shortcut that behaves like an app.</p>
+            <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Details here <i class="icon-external-link"></i></a></p>
           </div>
           <div class="span4">
             <h2><i class="icon-time"></i> Obsolescence Clock</h2>
@@ -160,7 +167,7 @@
 
       <hr/>
 
-      <section class="clearfix">
+      <section class="clearfix" id="content">
         <div class="left">
           <h2>How long ago did I last change this site?</h2>
           <div id="counter"></div>
@@ -207,7 +214,7 @@
       }
 
       function getStartTime() {
-        oTime = calcTimeDifference(new Date(2013, 3, 3, 16, 0, 0), new Date()); // Months 0-11!
+        oTime = calcTimeDifference(new Date(Date.parse('<?php echo date("Y-m-d\TH:i:s\Z",filemtime("index.php"))?>')), new Date());
         return pad(oTime.days) + ':' + pad(oTime.hours) + ':' + pad(oTime.minutes) + ':' + pad(oTime.seconds);
       }
 
