@@ -214,7 +214,7 @@
       }
 
       function getStartTime() {
-        oTime = calcTimeDifference(new Date(Date.parse('<?php echo date("Y-m-d\TH:i:s\Z",filemtime("index.php"))?>')), new Date());
+        oTime = calcTimeDifference(new Date(Date.parse('<?php echo date("c",filemtime("index.php"))?>')), new Date());
         return pad(oTime.days) + ':' + pad(oTime.hours) + ':' + pad(oTime.minutes) + ':' + pad(oTime.seconds);
       }
 
