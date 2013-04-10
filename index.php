@@ -54,8 +54,6 @@
         float: left;
         width: 121px;
       }
-      .left { float: left }
-      .right { float: right }
       .gandi-footer {
         width: 84px;
         height: 25px;
@@ -181,7 +179,7 @@
 
     <section id="content" class="container">
       <div class="row">
-        <div class="left">
+        <div class="span" style="float: left;">
           <h2>How long ago did I last change this site?</h2>
           <div id="counter"></div>
           <div>
@@ -191,7 +189,7 @@
             <span class="counter-legend">seconds</span>
           </div>
         </div>
-        <div class="right">
+        <div class="span" style="float: right;">
           <img alt="QR Code" src="img/qrcode150.png" />
         </div>
       </div>
@@ -200,10 +198,10 @@
 
     <footer class="container">
       <div class="row">
-        <div class="left">
+        <div class="span" style="float: left;">
           <p>&copy; 2013 John Chase <i class="icon-beer"></i></p>
         </div>
-        <div class="right">
+        <div class="span" style="float: right;">
           Generation time: <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
           <a href="https://www.gandi.net/"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
         </div>
