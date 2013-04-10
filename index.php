@@ -1,3 +1,4 @@
+<?php $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php")); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,8 +54,12 @@
         float: left;
         width: 121px;
       }
-      .right { float: right }
       .left { float: left }
+      .right { float: right }
+      .gandi-footer {
+        width: 84px;
+        height: 25px;
+      }
     </style>
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -89,8 +94,7 @@
 
     <a href="https://github.com/ratjuggler"><img class="fork" src="img/fork-right-grey.png" alt="Fork me on GitHub"></a>
 
-    <div class="container">
-
+    <section id="hero-unit" class="container">
       <div class="hero-unit">
         <div id="ratCarousel" class="carousel slide">
           <div class="carousel-inner">
@@ -126,48 +130,57 @@
           <p><a href="#about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
         </div>
       </div>
+    </section>
 
-      <section id="about">
-        <div class="row">
-          <div class="span4">
-            <h2><i class="icon-cogs"></i> Bootstrap</h2>
-            <p>I've used the Bootstrap framework, created by Twitter, as the basis for this site. Bootstrap makes use of HTML5 and JQuery and comes with a whole range of components and plugins including the image carousel.</p>
-            <p><a class="btn" href="http://twitter.github.com/bootstrap">Details here <i class="icon-external-link"></i></a></p>
-          </div>
-          <div class="span4">
-            <h2><i class="icon-picture"></i> Image Carousel</h2>
-            <p>The image carousel used here comes as standard with Bootstrap. It cycles through some pictures of dubious legality to distract and annoy you as you look at the site.</p>
-            <p><a class="btn" href="http://twitter.github.com/bootstrap/javascript.html#carousel">Details here <i class="icon-external-link"></i></a></p>
-          </div>
-          <div class="span4">
-            <h2><i class="icon-thumbs-up"></i> Font Awesome</h2>
-            <p>Font Awesome is awesome. Well I've used it for all of the various icons you can see. None of your old time image files here, it's scalable vectors all the way.</p>
-            <p><a class="btn" href="http://fortawesome.github.com/Font-Awesome">Details here <i class="icon-external-link"></i></a></p>
-          </div>
-        </div>
-        <hr/>
-        <div class="row">
-          <div class="span4">
-            <h2><i class="icon-qrcode"></i> QR Code</h2>
-            <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
-            <p><a class="btn" href="http://goqr.me/">Details here <i class="icon-external-link"></i></a></p>
-          </div>
-          <div class="span4">
-            <h2><i class="icon-tablet"></i> Favicon</h2>
-            <p>As well as supplying several different favicon sizes I've also included a fancy icon, and tweaked the settings, for iOS users. This will allow them to add a desktop shortcut that behaves like an app.</p>
-            <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Details here <i class="icon-external-link"></i></a></p>
-          </div>
-          <div class="span4">
-            <h2><i class="icon-time"></i> Obsolescence Clock</h2>
-            <p>Things move fast with web technologies. The clock at the bottom of the pages shows how long this site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
-            <p><a class="btn" href="https://github.com/stefancrain/Flipify.js">Details here <i class="icon-external-link"></i></a></p>
-          </div>
-        </div>
-      </section>
-
+    <section id="badges" class="container">
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=RatJuggler&repo=home-sandbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=RatJuggler&repo=home-sandbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102" height="20"></iframe>
+      <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-count="horizontal" data-via="ratjuggler" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
       <hr/>
+    </section>
 
-      <section class="clearfix" id="content">
+    <section id="about" class="container">
+      <div class="row">
+        <div class="span4">
+          <h2><i class="icon-cogs"></i> Bootstrap</h2>
+          <p>I've used the Bootstrap framework, created by Twitter, as the basis for this site. Bootstrap makes use of HTML5 and JQuery and comes with a whole range of components and plugins including the image carousel.</p>
+          <p><a class="btn" href="http://twitter.github.com/bootstrap">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+        <div class="span4">
+          <h2><i class="icon-picture"></i> Image Carousel</h2>
+          <p>The image carousel used here comes as standard with Bootstrap. It cycles through some pictures of dubious legality to distract and annoy you as you look at the site.</p>
+          <p><a class="btn" href="http://twitter.github.com/bootstrap/javascript.html#carousel">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+        <div class="span4">
+          <h2><i class="icon-thumbs-up"></i> Font Awesome</h2>
+          <p>Font Awesome is awesome. Well I've used it for all of the various icons you can see. None of your old time image files here, it's scalable vectors all the way.</p>
+          <p><a class="btn" href="http://fortawesome.github.com/Font-Awesome">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="span4">
+          <h2><i class="icon-qrcode"></i> QR Code</h2>
+          <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
+          <p><a class="btn" href="http://goqr.me/">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+        <div class="span4">
+          <h2><i class="icon-tablet"></i> Favicon</h2>
+          <p>As well as supplying several different favicon sizes I've also included a fancy icon, and tweaked the settings, for iOS users. This will allow them to add a desktop shortcut that behaves like an app.</p>
+          <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+        <div class="span4">
+          <h2><i class="icon-time"></i> Obsolescence Clock</h2>
+          <p>Things move fast with web technologies. The clock at the bottom of the pages shows how long this site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
+          <p><a class="btn" href="https://github.com/stefancrain/Flipify.js">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+      </div>
+      <hr/>
+    </section>
+
+    <section id="content" class="container">
+      <div class="row">
         <div class="left">
           <h2>How long ago did I last change this site?</h2>
           <div id="counter"></div>
@@ -181,19 +194,26 @@
         <div class="right">
           <img alt="QR Code" src="img/qrcode150.png" />
         </div>
-      </section>
-
+      </div>
       <hr/>
+    </section>
 
-      <footer>
-        <p>&copy; 2013 John Chase <i class="icon-beer"></i></p>
-      </footer>
+    <footer class="container">
+      <div class="row">
+        <div class="left">
+          <p>&copy; 2013 John Chase <i class="icon-beer"></i></p>
+        </div>
+        <div class="right">
+          Generation time: <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
+          <a href="https://www.gandi.net/"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
+        </div>
+      </div>
+    </footer>
 
-    </div>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/flipify.js"></script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/flipify.js"></script>
 
     <script>
       function calcTimeDifference(oldTime, newTime) {
@@ -214,7 +234,7 @@
       }
 
       function getStartTime() {
-        oTime = calcTimeDifference(new Date(Date.parse('<?php echo date("c",filemtime("index.php"))?>')), new Date());
+        oTime = calcTimeDifference(new Date(Date.parse('<?php echo $dtFile; ?>')), new Date());
         return pad(oTime.days) + ':' + pad(oTime.hours) + ':' + pad(oTime.minutes) + ':' + pad(oTime.seconds);
       }
 
@@ -227,5 +247,6 @@
         });
       }(window.jQuery);
     </script>
+
   </body>
 </html>
