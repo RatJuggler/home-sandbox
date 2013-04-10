@@ -134,7 +134,7 @@
       <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=RatJuggler&repo=home-sandbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
       <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=RatJuggler&repo=home-sandbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102" height="20"></iframe>
       <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-count="horizontal" data-via="ratjuggler" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-text="Look at this great site: " data-count="horizontal">Tweet</a>
       <hr/>
     </section>
 
