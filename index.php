@@ -143,17 +143,17 @@
         <div class="span4">
           <h2><i class="icon-cogs"></i> Bootstrap</h2>
           <p>I've used the Bootstrap framework, created by Twitter, as the basis for this site. Bootstrap makes use of HTML5 and JQuery and comes with a whole range of components and plugins including the image carousel.</p>
-          <p><a class="btn" href="http://twitter.github.com/bootstrap">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://twitter.github.com/bootstrap" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
           <h2><i class="icon-picture"></i> Image Carousel</h2>
           <p>The image carousel used here comes as standard with Bootstrap. It cycles through some pictures of dubious legality to distract and annoy you as you look at the site.</p>
-          <p><a class="btn" href="http://twitter.github.com/bootstrap/javascript.html#carousel">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://twitter.github.com/bootstrap/javascript.html#carousel" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
           <h2><i class="icon-thumbs-up"></i> Font Awesome</h2>
           <p>Font Awesome is awesome. Well I've used it for all of the various icons you can see. None of your old time image files here, it's scalable vectors all the way.</p>
-          <p><a class="btn" href="http://fortawesome.github.com/Font-Awesome">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://fortawesome.github.com/Font-Awesome" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
       </div>
       <hr/>
@@ -161,17 +161,17 @@
         <div class="span4">
           <h2><i class="icon-qrcode"></i> QR Code</h2>
           <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
-          <p><a class="btn" href="http://goqr.me/">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://goqr.me/ target="_blank"">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
           <h2><i class="icon-tablet"></i> Favicon</h2>
           <p>As well as supplying several different favicon sizes I've also included a fancy icon, and tweaked the settings, for iOS users. This will allow them to add a desktop shortcut that behaves like an app.</p>
-          <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
           <h2><i class="icon-time"></i> Obsolescence Clock</h2>
           <p>Things move fast with web technologies. The clock at the bottom of the pages shows how long this site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
-          <p><a class="btn" href="https://github.com/stefancrain/Flipify.js">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="https://github.com/stefancrain/Flipify.js" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
       </div>
       <hr/>
@@ -203,7 +203,7 @@
         </div>
         <div class="span" style="float: right;">
           Generation time: <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
-          <a href="https://www.gandi.net/"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
+          <a href="https://www.gandi.net/" target="_blank"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
         </div>
       </div>
     </footer>
