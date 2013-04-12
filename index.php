@@ -16,12 +16,6 @@
       hr {
         margin: 10px 0px;
       }
-      .fork {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 9999;
-      }
       .hero-unit {
         margin-bottom: 0px;
       }
@@ -67,6 +61,43 @@
       .twitter-button {
         padding: 10px 0px 0px 15px;
       }
+      #forkongithub a {
+        background: #000000;
+        color: #FFFFFF;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 40px;
+        font-size: 1.5em;
+        line-height: 2em;
+        border: 1px dashed #FFFFFF;
+        border-width: 1px 0px;
+        box-shadow: 4px 4px 10px #333333;
+        z-index: 9999;
+        transition: 0.5s;
+      }
+      #forkongithub a:hover {
+        background: #0000ff;
+      }
+      @media screen and (min-width:980px){
+        #forkongithub {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 300px;
+          height: 300px;
+          overflow: hidden;
+        }
+        #forkongithub a {
+          position: absolute;
+          top: 90px;
+          right: -90px;
+          width: 300px;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+      }
     </style>
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -81,11 +112,11 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </a>
           <a class="brand" href="#">RatJuggler</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
@@ -100,7 +131,7 @@
       </div>
     </div>
 
-    <a href="https://github.com/RatJuggler/home-sandbox"><img class="fork" src="img/fork-right-grey.png" alt="Fork me on GitHub"></a>
+    <span id="forkongithub"><a href="https://github.com/RatJuggler/home-sandbox">Fork me on GitHub</a></span>
 
     <section id="hero-unit" class="container">
       <div class="hero-unit">
