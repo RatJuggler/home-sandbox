@@ -58,6 +58,9 @@
         width: 84px;
         height: 25px;
       }
+      .twitter-button {
+        padding: 10px 0px 0px 15px;
+      }
     </style>
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -84,13 +87,14 @@
               <li><a href="#about">About</a></li>
               <li><a href="#content">Content</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="https://twitter.com/share" class="twitter-button twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-text="Look at this great site: " data-count="horizontal">Tweet</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <a href="https://github.com/ratjuggler"><img class="fork" src="img/fork-right-grey.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/RatJuggler/home-sandbox"><img class="fork" src="img/fork-right-grey.png" alt="Fork me on GitHub"></a>
 
     <section id="hero-unit" class="container">
       <div class="hero-unit">
@@ -124,18 +128,11 @@
         </div>
         <div class="hero-content">
           <h1>Hello internets!</h1>
-          <p>My name is John Chase. This site is a desperate attempt to stick my head above the HTTP parapet and prove that I know at least something about modern web technologies. This doesn't necessarily mean I know anything about design though.</p>
+          <p>My name is John Chase. This site is a desperate attempt to stick my head above the HTTP parapet and prove that I know at least something about modern web technologies.
+             This doesn't necessarily mean I know anything about design though. <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
           <p><a href="#about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
         </div>
       </div>
-    </section>
-
-    <section id="badges" class="container">
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=RatJuggler&repo=home-sandbox&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
-      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=RatJuggler&repo=home-sandbox&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102" height="20"></iframe>
-      <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-text="Look at this great site: " data-count="horizontal">Tweet</a>
-      <hr/>
     </section>
 
     <section id="about" class="container">
@@ -159,9 +156,23 @@
       <hr/>
       <div class="row">
         <div class="span4">
+          <h2><i class="icon-github"></i> GitHub</h2>
+          <p>The code for this site is available on GitHub. Though why on earth you'd want to look at it is anyone's guess.</p>
+          <p><a class="btn" href="https://github.com/RatJuggler/home-sandbox" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+        <div class="span4">
+          <h2><i class="icon-twitter"></i> Twitter</h2>
+          <p>Social media "badges" are all the rage. I've added some Twitter buttons to tweet and follow because I don't like Facebook.</p>
+          <p><a class="btn" href="https://dev.twitter.com/docs/twitter-for-websites" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+         <div class="span4"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="span4">
           <h2><i class="icon-qrcode"></i> QR Code</h2>
           <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
-          <p><a class="btn" href="http://goqr.me/ target="_blank"">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://goqr.me/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
           <h2><i class="icon-tablet"></i> Favicon</h2>
@@ -202,7 +213,7 @@
           <p>&copy; 2013 John Chase <i class="icon-beer"></i></p>
         </div>
         <div class="span" style="float: right;">
-          Generation time: <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
+          Generated in <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
           <a href="https://www.gandi.net/" target="_blank"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
         </div>
       </div>
