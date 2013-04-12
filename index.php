@@ -13,6 +13,9 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
+      hr {
+        margin: 10px 0px;
+      }
       .fork {
         position: fixed;
         top: 0;
@@ -20,7 +23,10 @@
         z-index: 9999;
       }
       .hero-unit {
-        padding: 40px;
+        margin-bottom: 0px;
+      }
+      .nav-point {
+        padding-top: 40px;
       }
       .rat-size {
         width: 250px;
@@ -135,7 +141,7 @@
       </div>
     </section>
 
-    <section id="about" class="container">
+    <section id="about" class="nav-point container">
       <div class="row">
         <div class="span4">
           <h2><i class="icon-cogs"></i> Bootstrap</h2>
@@ -188,7 +194,7 @@
       <hr/>
     </section>
 
-    <section id="content" class="container">
+    <section id="content" class="nav-point container">
       <div class="row">
         <div class="span" style="float: left;">
           <h2>How long ago did I last change this site?</h2>
