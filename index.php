@@ -2,14 +2,12 @@
 <?php
   // Capture the start time so we can calculate how long the page took to prepare.
   $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php"));
-?>
-<html lang="en">
-  <head>
-<?php
-  // Check for a cookie to keep track of the page theme, set a default if required.
+  // Check for a cookie to keep track of the page theme, set a default if not found.
   if (!empty($_COOKIE["theme"])) {$theme = $_COOKIE["theme"];} else {$theme = "none";}
   setcookie("theme", $theme, time() + 604800); // Cookie should last for a week.
 ?>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
     <title>RatJuggler - Home | The vanity page of John Chase.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
