@@ -1,105 +1,27 @@
-<?php $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php")); ?>
 <!DOCTYPE html>
+<?php
+  // Capture the start time so we can calculate how long the page took to prepare.
+  $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php"));
+?>
 <html lang="en">
   <head>
+<?php
+  // Check for a cookie to keep track of the page theme, set a default if required.
+  if (!empty($_COOKIE["theme"])) {$theme = $_COOKIE["theme"];} else {$theme = "none";}
+  setcookie("theme", $theme, time() + 604800); // Cookie should last for a week.
+?>
     <meta charset="utf-8">
     <title>RatJuggler - Home | The vanity page of John Chase.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A page for me to try out all the little bits and pieces that web designers have so much fun with.">
     <meta name="keywords" content="RatJuggler, John Chase, development, web design, vanity">
     <meta name="author" content="John Chase">
+<?php if ($theme == "none") { ?>
     <link href="css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      hr {
-        margin: 10px 0px;
-      }
-      .hero-unit {
-        margin-bottom: 0px;
-      }
-      .nav-point {
-        padding-top: 40px;
-      }
-      .rat-size {
-        width: 250px;
-        height: 250px;
-      }
-      .carousel {
-        float: left;
-        margin-right: 30px;
-      }
-      .carousel-control {
-        margin-top: 0;
-      }
-      .carousel-indicators {
-        top: auto;
-        bottom: -15px;
-      }
-      .carousel-indicators li {
-        background-color: #000000;
-      }
-      .carousel-indicators .active {
-        background-color: #FFFFFF;
-      }
-      .hero-content {
-        padding-bottom: 40px;
-      }
-      .cntSeparator {
-        font-size: 54px;
-        padding-top: 25px;
-      }
-      .counter-legend {
-        float: left;
-        width: 121px;
-      }
-      .gandi-footer {
-        width: 84px;
-        height: 25px;
-      }
-      .twitter-button {
-        padding: 10px 0px 0px 15px;
-      }
-      #forkongithub a {
-        background: #000000;
-        color: #FFFFFF;
-        text-align: center;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 5px 40px;
-        font-size: 1.5em;
-        line-height: 2em;
-        border: 1px dashed #FFFFFF;
-        border-width: 1px 0px;
-        box-shadow: 4px 4px 10px #333333;
-        z-index: 9999;
-        transition: 0.5s;
-      }
-      #forkongithub a:hover {
-        background: #0000ff;
-      }
-      @media screen and (min-width:980px){
-        #forkongithub {
-          display: block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 300px;
-          height: 300px;
-          overflow: hidden;
-        }
-        #forkongithub a {
-          position: absolute;
-          top: 90px;
-          right: -90px;
-          width: 300px;
-          transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-        }
-      }
-    </style>
+<?php } else { ?>
+    <link href="css/bootstrap_1990s.css" rel="stylesheet">
+<?php } ?>
+    <link href="css/override.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="icon" href="ico/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128" type="image/vnd.microsoft.icon">
@@ -125,6 +47,14 @@
               <li><a href="#about">About</a></li>
               <li><a href="#content">Content</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Theme <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="theme-changer.php?theme=none">None</a></li>
+                  <li class="divider"></li>
+                  <li><a href="theme-changer.php?theme=1990s">The 1990s</a></li>
+                </ul>
+              </li>
               <li><a href="https://twitter.com/share" class="twitter-button twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-text="Look at this great site: " data-count="horizontal">Tweet</a></li>
             </ul>
           </div>
@@ -203,19 +133,23 @@
           <p>Social media "badges" are all the rage. I've added some Twitter buttons to tweet and follow because I don't like Facebook.</p>
           <p><a class="btn" href="https://dev.twitter.com/docs/twitter-for-websites" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
-         <div class="span4"></div>
+         <div class="span4">
+          <h2><i class="icon-tasks"></i> Web Cruft</h2>
+          <p>Meta tags, robots.txt, sitemap.xml and various other bits and pieces you can have to supposedly improve a site.</p>
+          <p><a class="btn" href="https://developers.google.com/webmasters/control-crawl-index/docs/getting_started" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+         </div>
       </div>
       <hr/>
       <div class="row">
         <div class="span4">
-          <h2><i class="icon-qrcode"></i> QR Code</h2>
-          <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
-          <p><a class="btn" href="http://goqr.me/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
-        </div>
-        <div class="span4">
           <h2><i class="icon-tablet"></i> Favicon</h2>
           <p>As well as supplying several different favicon sizes I've also included a fancy icon, and tweaked the settings, for iOS users. This will allow them to add a desktop shortcut that behaves like an app.</p>
           <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+        </div>
+        <div class="span4">
+          <h2><i class="icon-qrcode"></i> QR Code</h2>
+          <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
+          <p><a class="btn" href="http://goqr.me/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
           <h2><i class="icon-time"></i> Obsolescence Clock</h2>
@@ -264,16 +198,16 @@
 
     <script>
       function calcTimeDifference(oldTime, newTime) {
-       var msDiff = newTime.getTime() - oldTime.getTime();
-       var oResult = new Object();
-       oResult.days = Math.floor(msDiff/1000/60/60/24);
-       msDiff -= oResult.days*1000*60*60*24;
-       oResult.hours = Math.floor(msDiff/1000/60/60);
-       msDiff -= oResult.hours*1000*60*60;
-       oResult.minutes = Math.floor(msDiff/1000/60);
-       msDiff -= oResult.minutes*1000*60;
-       oResult.seconds = Math.floor(msDiff/1000);
-       return oResult;
+        var msDiff = newTime.getTime() - oldTime.getTime();
+        var oResult = new Object();
+        oResult.days = Math.floor(msDiff/1000/60/60/24);
+        msDiff -= oResult.days*1000*60*60*24;
+        oResult.hours = Math.floor(msDiff/1000/60/60);
+        msDiff -= oResult.hours*1000*60*60;
+        oResult.minutes = Math.floor(msDiff/1000/60);
+        msDiff -= oResult.minutes*1000*60;
+        oResult.seconds = Math.floor(msDiff/1000);
+        return oResult;
       }
 
       function pad(n) {

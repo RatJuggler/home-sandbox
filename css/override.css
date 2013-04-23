@@ -1,0 +1,117 @@
+/*
+ * This file contains overrides to the bootstrap standard as well as additional
+ * styles used to create the pages.
+ */
+
+/* Style overrides from bootstap standard. */
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+hr {
+  margin: 10px 0px;
+}
+
+.hero-unit {
+  margin-bottom: 0px;
+}
+
+.nav-point {
+  padding-top: 40px;
+}
+
+.carousel {
+  float: left;
+  margin-right: 30px;
+}
+
+.carousel-control {
+  margin-top: 0;
+}
+
+.carousel-indicators {
+  top: auto;
+  bottom: -15px;
+}
+
+.carousel-indicators li {
+  background-color: #000000;
+}
+
+.carousel-indicators .active {
+  background-color: #FFFFFF;
+}
+
+.hero-content {
+  padding-bottom: 40px;
+}
+
+/* Additional styles to tweak the page presentation. */
+
+.rat-size {
+  width: 250px;
+  height: 250px;
+}
+
+.cntSeparator {
+  font-size: 54px;
+  padding-top: 25px;
+}
+
+.counter-legend {
+  float: left;
+  width: 121px;
+}
+
+.gandi-footer {
+  width: 84px;
+  height: 25px;
+}
+
+.twitter-button {
+  padding: 10px 0px 0px 15px;
+}
+
+/* Fork it on GitHub CSS. */
+
+#forkongithub a {
+  background: #000000;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 40px;
+  font-size: 1.5em;
+  line-height: 2em;
+  border: 1px dashed #FFFFFF;
+  border-width: 1px 0px;
+  box-shadow: 4px 4px 10px #333333;
+  z-index: 9999;
+  transition: 0.5s;
+}
+
+#forkongithub a:hover {
+  background: #0000ff;
+}
+
+@media screen and (min-width:980px){
+  #forkongithub {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+  }
+  #forkongithub a {
+    position: absolute;
+    top: 90px;
+    right: -90px;
+    width: 300px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
