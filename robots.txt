@@ -1,0 +1,6 @@
+﻿# Hello robots!
+
+User-agent: *
+Disallow:
+
+Sitemap: http://www.ratjuggler.co.uk/sitemap.xml
