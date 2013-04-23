@@ -4,7 +4,6 @@
   $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php"));
   // Check for a cookie to keep track of the page theme, set a default if not found.
   if (!empty($_COOKIE["theme"])) {$theme = $_COOKIE["theme"];} else {$theme = "none";}
-  setcookie("theme", $theme, time() + 604800); // Cookie should last for a week.
 ?>
 <html lang="en">
   <head>
