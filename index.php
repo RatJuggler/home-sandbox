@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>RatJuggler - Home | The vanity page of John Chase.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RatJuggler, John Chase, vanity">
+    <meta name="description" content="A page for me to try out all the little bits and pieces that web designers have so much fun with.">
+    <meta name="keywords" content="RatJuggler, John Chase, development, web design, vanity">
     <meta name="author" content="John Chase">
     <link href="css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
