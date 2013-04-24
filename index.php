@@ -61,8 +61,9 @@
 
     <span id="forkongithub"><a href="https://github.com/RatJuggler/home-sandbox">Fork me on GitHub</a></span>
 
-    <section id="hero-unit" class="container">
-      <div class="hero-unit">
+    <section id="hero-unit" class="container hero-unit">
+      <div class="row">
+        <div class="span3">
         <div id="ratCarousel" class="carousel slide">
           <div class="carousel-inner">
             <div class="item active"><img class="rat-size" alt="Bolt Cutter Rat" src="img/bolt-cutter-rat.jpg" /></div>
@@ -91,10 +92,13 @@
             <li data-target="#ratCarousel" data-slide-to="9"></li>
           </ol>
         </div>
-        <div class="hero-content">
+        </div>
+        <div class="span9">
           <h1>Hello internets!</h1>
+          <div class="cookie-warning">This web site uses cookies for your comfort and convenience. Continued use of this site means you are happy with this. <a href="#">[OK]</a></div>
           <p>My name is John Chase. This site is a desperate attempt to stick my head above the HTTP parapet and prove that I know at least something about modern web technologies.
-             This doesn't necessarily mean I know anything about design though. <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
+             Or at least the ability to Goggle, read and cut-and-paste other peoples code.
+             It doesn't necessarily mean I know anything about design though. <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
           <p><a href="#about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
         </div>
       </div>
@@ -132,7 +136,7 @@
         </div>
          <div class="span4">
           <h2><i class="icon-tasks"></i> Web Cruft</h2>
-          <p>Meta tags, robots.txt, sitemap.xml and various other bits and pieces you can have to supposedly improve a site.</p>
+          <p>Cookie warning, meta tags, robots.txt, sitemap.xml and various other bits and pieces you can have to supposedly improve a site.</p>
           <p><a class="btn" href="https://developers.google.com/webmasters/control-crawl-index/docs/getting_started" target="_blank">Details here <i class="icon-external-link"></i></a></p>
          </div>
       </div>
@@ -190,6 +194,7 @@
 
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/flipify.js"></script>
 
@@ -216,8 +221,20 @@
         return pad(oTime.days) + ':' + pad(oTime.hours) + ':' + pad(oTime.minutes) + ':' + pad(oTime.seconds);
       }
 
+      function cookieWarning() {
+        var cookieStatus = $.cookie('cookie-warning');
+        if (typeof cookieStatus === 'undefined') {
+            $(".cookie-warning").slideDown();
+            $(".cookie-warning a").click(function () {
+                $(".cookie-warning").slideUp();
+                $.cookie('cookie-warning', 'shown', {expires: 7});
+            });
+        }
+      }
+
       !function ($) {
-        $(function(){
+        $(function() {
+          cookieWarning();
           $('#ratCarousel').carousel('cycle');
           $('#counter').flipify({
  	        	startTime: getStartTime()

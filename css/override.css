@@ -44,10 +44,6 @@ hr {
   background-color: #FFFFFF;
 }
 
-.hero-content {
-  padding-bottom: 40px;
-}
-
 /* Additional styles to tweak the page presentation. */
 
 .rat-size {
@@ -74,6 +70,17 @@ hr {
   padding: 10px 0px 0px 15px;
 }
 
+.cookie-warning {
+  display: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #FFFFFF;
+}
+
 /* Fork it on GitHub CSS. */
 
 #forkongithub a {
@@ -88,7 +95,6 @@ hr {
   border: 1px dashed #FFFFFF;
   border-width: 1px 0px;
   box-shadow: 4px 4px 10px #333333;
-  z-index: 9999;
   transition: 0.5s;
 }
 
@@ -107,11 +113,12 @@ hr {
     overflow: hidden;
   }
   #forkongithub a {
-    position: absolute;
+    position: fixed;
     top: 90px;
     right: -90px;
     width: 300px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    z-index: 9999;
   }
 }
