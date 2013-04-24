@@ -64,34 +64,34 @@
     <section id="hero-unit" class="container hero-unit">
       <div class="row">
         <div class="span3">
-        <div id="ratCarousel" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="item active"><img class="rat-size" alt="Bolt Cutter Rat" src="img/bolt-cutter-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Bowlet Hat Rat" src="img/bowler-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Camera Rat" src="img/camera-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Drilling Rat" src="img/drilling-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Rap Rat" src="img/rap-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Red Carpet Rats" src="img/red-carpet-rats.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Resistance Rats" src="img/resistance-rats.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Sword Rat" src="img/sword-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Toxic Rat" src="img/toxic-rat.jpg" /></div>
-            <div class="item"><img class="rat-size" alt="Umbrella Rat" src="img/umbrella-rat.jpg" /></div>
+          <div id="ratCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active"><img class="rat-size" alt="Bolt Cutter Rat" src="img/bolt-cutter-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Bowlet Hat Rat" src="img/bowler-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Camera Rat" src="img/camera-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Drilling Rat" src="img/drilling-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Rap Rat" src="img/rap-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Red Carpet Rats" src="img/red-carpet-rats.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Resistance Rats" src="img/resistance-rats.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Sword Rat" src="img/sword-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Toxic Rat" src="img/toxic-rat.jpg" /></div>
+              <div class="item"><img class="rat-size" alt="Umbrella Rat" src="img/umbrella-rat.jpg" /></div>
+            </div>
+            <a class="left carousel-control" href="#ratCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#ratCarousel" data-slide="next">&rsaquo;</a>
+            <ol class="carousel-indicators">
+              <li data-target="#ratCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#ratCarousel" data-slide-to="1"></li>
+              <li data-target="#ratCarousel" data-slide-to="2"></li>
+              <li data-target="#ratCarousel" data-slide-to="3"></li>
+              <li data-target="#ratCarousel" data-slide-to="4"></li>
+              <li data-target="#ratCarousel" data-slide-to="5"></li>
+              <li data-target="#ratCarousel" data-slide-to="6"></li>
+              <li data-target="#ratCarousel" data-slide-to="7"></li>
+              <li data-target="#ratCarousel" data-slide-to="8"></li>
+              <li data-target="#ratCarousel" data-slide-to="9"></li>
+            </ol>
           </div>
-          <a class="left carousel-control" href="#ratCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="right carousel-control" href="#ratCarousel" data-slide="next">&rsaquo;</a>
-          <ol class="carousel-indicators">
-            <li data-target="#ratCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#ratCarousel" data-slide-to="1"></li>
-            <li data-target="#ratCarousel" data-slide-to="2"></li>
-            <li data-target="#ratCarousel" data-slide-to="3"></li>
-            <li data-target="#ratCarousel" data-slide-to="4"></li>
-            <li data-target="#ratCarousel" data-slide-to="5"></li>
-            <li data-target="#ratCarousel" data-slide-to="6"></li>
-            <li data-target="#ratCarousel" data-slide-to="7"></li>
-            <li data-target="#ratCarousel" data-slide-to="8"></li>
-            <li data-target="#ratCarousel" data-slide-to="9"></li>
-          </ol>
-        </div>
         </div>
         <div class="span9">
           <h1>Hello internets!</h1>
@@ -182,15 +182,19 @@
 
     <footer class="container">
       <div class="row">
-        <div class="span" style="float: left;">
+        <div class="span4">
           <p>&copy; 2013 John Chase <i class="icon-beer"></i></p>
         </div>
-        <div class="span">
-          <a id="show-policy" href="#privacy-policy">Privacy Policy</a>
+        <div class="span4">
+          <p style="text-align: center;">
+            <a id="show-policy" href="#privacy-policy">Privacy Policy</a>
+          </p>
         </div>
-        <div class="span" style="float: right;">
-          Generated in <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
-          <a href="https://www.gandi.net/" target="_blank"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
+        <div class="span4">
+          <p style="float: right;">
+            Generated in <?php echo(number_format(microtime(true)-$mtStart,6)); ?> secs from
+            <a href="https://www.gandi.net/" target="_blank"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
+          </p>
         </div>
       </div>
     </footer>
