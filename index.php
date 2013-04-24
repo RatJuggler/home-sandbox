@@ -95,7 +95,11 @@
         </div>
         <div class="span9">
           <h1>Hello internets!</h1>
-          <div class="cookie-warning">This web site uses cookies for your comfort and convenience. Continued use of this site means you are happy with this. <a href="#">[OK]</a></div>
+          <div id="cookie-warning" class="alert alert-block">
+            <a href="#" class="close">&times;</a>
+            <p><strong>Warning!</strong>
+               This web site uses cookies for your comfort and convenience. Continued use of this site means you are happy with this usage.</p>
+          </div>
           <p>My name is John Chase. This site is a desperate attempt to stick my head above the HTTP parapet and prove that I know at least something about modern web technologies.
              Or at least the ability to Goggle, read and cut-n-paste other peoples code.
              <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
@@ -241,11 +245,11 @@
       function cookieWarning() {
         var cookieStatus = $.cookie('cookie-warning');
         if (typeof cookieStatus === 'undefined') {
-            $(".cookie-warning a").click(function () {
-                $(".cookie-warning").slideUp();
+            $("#cookie-warning a").click(function () {
+                $("#cookie-warning").slideUp();
                 $.cookie('cookie-warning', 'shown', {expires: 7});
             });
-            $(".cookie-warning").slideDown();
+            $("#cookie-warning").slideDown();
         }
       }
 

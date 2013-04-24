@@ -61,15 +61,8 @@ hr {
   padding: 10px 0px 0px 15px;
 }
 
-.cookie-warning {
+#cookie-warning {
   display: none;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 1em;
-  background-color: #FFFFFF;
 }
 
 #overlay {
