@@ -194,7 +194,7 @@
         </div>
         <div class="span4">
           <p style="text-align: center;">
-            <a id="show-policy" href="#privacy-policy">Privacy Policy</a>
+            <a href="#privacy-policy" role="button" data-toggle="modal">Privacy Policy</a>
           </p>
         </div>
         <div class="span4">
@@ -206,11 +206,16 @@
       </div>
     </footer>
 
-    <div id="overlay"></div>
-    <div id="privacy-policy">
-      <h2>Privacy!?! this is the internet...</h2>
-      <p>OK, I promise not to do anything evil with any data you willingly (e.g. contact details) or unwillingly (e.g. IP address) provide whilst visiting this site.</p>
-      <p>This includes deliberate public exposure as well as selling to third parties so you won't be embarrassed that you've been seen here.</>
+    <div id="privacy-policy" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Privacy Policy</h3>
+      </div>
+      <div class="modal-body">
+        <p>Privacy!?! this is the internet...</p>
+        <p>OK, I promise not to do anything evil with any data you willingly (e.g. contact details) or unwillingly (e.g. IP address) provide whilst visiting this site.</p>
+        <p>This includes deliberate public exposure as well as selling to third parties so you won't be embarrassed that you've been seen here.</>
+      </div>
     </div>
 
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -253,23 +258,6 @@
         }
       }
 
-      function privacyPolicy() {
-        $('#show-policy').click(function(e) {
-          var modal_id = $(this).attr("href");
-          $("#overlay").click(function() {
-            $("#overlay").fadeOut(200);
-            $(modal_id).hide();
-          });
-          var shift_up = $(modal_id).outerHeight() / 2;
-          var shift_left = $(modal_id).outerWidth() / 2;
-          $("#overlay").show();
-          $("#overlay").fadeTo(200, 0.5);
-          $(modal_id).css({"display": "block", "margin-left": -shift_left + "px", "margin-top": -shift_up + "px"});
-          $(modal_id).fadeTo(200, 1);
-          e.preventDefault();
-        });
-      }
-
       !function ($) {
         $(function() {
           cookieWarning();
@@ -277,7 +265,6 @@
           $('#counter').flipify({
  	        	startTime: getStartTime()
   	  		});
-          privacyPolicy();
         });
       } (window.jQuery);
     </script>
