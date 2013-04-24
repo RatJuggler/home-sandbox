@@ -97,8 +97,8 @@
           <h1>Hello internets!</h1>
           <div class="cookie-warning">This web site uses cookies for your comfort and convenience. Continued use of this site means you are happy with this. <a href="#">[OK]</a></div>
           <p>My name is John Chase. This site is a desperate attempt to stick my head above the HTTP parapet and prove that I know at least something about modern web technologies.
-             Or at least the ability to Goggle, read and cut-and-paste other peoples code.
-             It doesn't necessarily mean I know anything about design though. <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
+             Or at least the ability to Goggle, read and cut-n-paste other peoples code.
+             <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
           <p><a href="#about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
         </div>
       </div>
@@ -136,7 +136,7 @@
         </div>
          <div class="span4">
           <h2><i class="icon-tasks"></i> Web Cruft</h2>
-          <p>Cookie warning, meta tags, robots.txt, sitemap.xml and various other bits and pieces you can have to supposedly improve a site.</p>
+          <p>Cookie warning, privacy policy, meta tags, robots.txt, sitemap.xml and various other bits and pieces you can have to supposedly improve a site.</p>
           <p><a class="btn" href="https://developers.google.com/webmasters/control-crawl-index/docs/getting_started" target="_blank">Details here <i class="icon-external-link"></i></a></p>
          </div>
       </div>
@@ -185,12 +185,22 @@
         <div class="span" style="float: left;">
           <p>&copy; 2013 John Chase <i class="icon-beer"></i></p>
         </div>
+        <div class="span">
+          <a id="show-policy" href="#privacy-policy">Privacy Policy</a>
+        </div>
         <div class="span" style="float: right;">
           Generated in <?php echo(number_format(microtime(true)-$mtStart,6)); ?> seconds from
           <a href="https://www.gandi.net/" target="_blank"><img alt="Gandi hosting link" class="gandi-footer" src="img/Gandi_logo_black.jpg" /></a>
         </div>
       </div>
     </footer>
+
+    <div id="overlay"></div>
+    <div id="privacy-policy">
+      <h2>Privacy!?! this is the internet...</h2>
+      <p>OK, I promise not to do anything evil with any data you willingly (e.g. contact details) or unwillingly (e.g. IP address) provide whilst visiting this site.</p>
+      <p>This includes deliberate public exposure as well as selling to third parties so you won't be embarrassed that you've been seen here.</>
+    </div>
 
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -224,12 +234,29 @@
       function cookieWarning() {
         var cookieStatus = $.cookie('cookie-warning');
         if (typeof cookieStatus === 'undefined') {
-            $(".cookie-warning").slideDown();
             $(".cookie-warning a").click(function () {
                 $(".cookie-warning").slideUp();
                 $.cookie('cookie-warning', 'shown', {expires: 7});
             });
+            $(".cookie-warning").slideDown();
         }
+      }
+
+      function privacyPolicy() {
+        $('#show-policy').click(function(e) {
+          var modal_id = $(this).attr("href");
+          $("#overlay").click(function() {
+            $("#overlay").fadeOut(200);
+            $(modal_id).hide();
+          });
+          var shift_up = $(modal_id).outerHeight() / 2;
+          var shift_left = $(modal_id).outerWidth() / 2;
+          $("#overlay").show();
+          $("#overlay").fadeTo(200, 0.5);
+          $(modal_id).css({"display": "block", "margin-left": -shift_left + "px", "margin-top": -shift_up + "px"});
+          $(modal_id).fadeTo(200, 1);
+          e.preventDefault();
+        });
       }
 
       !function ($) {
@@ -239,8 +266,9 @@
           $('#counter').flipify({
  	        	startTime: getStartTime()
   	  		});
+          privacyPolicy();
         });
-      }(window.jQuery);
+      } (window.jQuery);
     </script>
 
   </body>
