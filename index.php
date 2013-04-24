@@ -66,16 +66,16 @@
         <div class="span3">
           <div id="ratCarousel" class="carousel slide">
             <div class="carousel-inner">
-              <div class="item active"><img class="rat-size" alt="Bolt Cutter Rat" src="img/bolt-cutter-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Bowlet Hat Rat" src="img/bowler-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Camera Rat" src="img/camera-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Drilling Rat" src="img/drilling-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Rap Rat" src="img/rap-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Red Carpet Rats" src="img/red-carpet-rats.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Resistance Rats" src="img/resistance-rats.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Sword Rat" src="img/sword-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Toxic Rat" src="img/toxic-rat.jpg" /></div>
-              <div class="item"><img class="rat-size" alt="Umbrella Rat" src="img/umbrella-rat.jpg" /></div>
+              <div class="item active"><img alt="Bolt Cutter Rat" src="img/bolt-cutter-rat.jpg" /></div>
+              <div class="item"><img alt="Bowlet Hat Rat" src="img/bowler-rat.jpg" /></div>
+              <div class="item"><img alt="Camera Rat" src="img/camera-rat.jpg" /></div>
+              <div class="item"><img alt="Drilling Rat" src="img/drilling-rat.jpg" /></div>
+              <div class="item"><img alt="Rap Rat" src="img/rap-rat.jpg" /></div>
+              <div class="item"><img alt="Red Carpet Rats" src="img/red-carpet-rats.jpg" /></div>
+              <div class="item"><img alt="Resistance Rats" src="img/resistance-rats.jpg" /></div>
+              <div class="item"><img alt="Sword Rat" src="img/sword-rat.jpg" /></div>
+              <div class="item"><img alt="Toxic Rat" src="img/toxic-rat.jpg" /></div>
+              <div class="item"><img alt="Umbrella Rat" src="img/umbrella-rat.jpg" /></div>
             </div>
             <a class="left carousel-control" href="#ratCarousel" data-slide="prev">&lsaquo;</a>
             <a class="right carousel-control" href="#ratCarousel" data-slide="next">&rsaquo;</a>
@@ -163,7 +163,7 @@
 
     <section id="content" class="nav-point container">
       <div class="row">
-        <div class="span" style="float: left;">
+        <div class="span6">
           <h2>How long ago did I last change this site?</h2>
           <div id="counter"></div>
           <div>
@@ -173,8 +173,11 @@
             <span class="counter-legend">seconds</span>
           </div>
         </div>
-        <div class="span" style="float: right;">
-          <img alt="QR Code" src="img/qrcode150.png" />
+        <div class="span6">
+          <div style="float: right;">
+            <h2>QR Code</h2><br/>
+            <img alt="QR Code" src="img/qrcode150.png" />
+          </div>
         </div>
       </div>
       <hr/>
