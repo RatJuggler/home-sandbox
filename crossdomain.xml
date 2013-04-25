@@ -3,6 +3,6 @@
 <cross-domain-policy>
 	<!-- Take your stinking paws off me, you damned dirty flash! -->
 
-    <!-- Most restrictive policy: -->
-    <site-control permitted-cross-domain-policies="none"/>
+  <!-- Most restrictive policy: -->
+  <site-control permitted-cross-domain-policies="none"/>
 </cross-domain-policy>
