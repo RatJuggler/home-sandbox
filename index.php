@@ -39,7 +39,7 @@
               <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#content">Content</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#contact-form-modal" data-toggle="modal">Contact</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Theme <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -174,6 +174,7 @@
             <span class="counter-legend">minutes</span>
             <span class="counter-legend">seconds</span>
           </div>
+          <div class="clearfix"></div>
         </div>
         <div class="span6">
           <h2><i class="icon-qrcode"></i> QR Code</h2>
@@ -194,7 +195,7 @@
         </div>
         <div class="span4">
           <p style="text-align: center;">
-            <a href="#privacy-policy" role="button" data-toggle="modal">Privacy Policy</a>
+            <a href="#privacy-policy-modal" data-toggle="modal">Privacy Policy</a>
           </p>
         </div>
         <div class="span4">
@@ -206,21 +207,77 @@
       </div>
     </footer>
 
-    <div id="privacy-policy" class="modal hide fade">
+    <div id="privacy-policy-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ppLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Privacy Policy</h3>
+        <h3 id="ppLabel">Privacy Policy</h3>
       </div>
       <div class="modal-body">
         <p>Privacy!?! this is the internet...</p>
         <p>OK, I promise not to do anything evil with any data you willingly (e.g. contact details) or unwillingly (e.g. IP address) provide whilst visiting this site.</p>
-        <p>This includes deliberate public exposure as well as selling to third parties so you won't be embarrassed that you've been seen here.</>
+        <p>This includes deliberate public exposure as well as selling to third parties so you won't be embarrassed that you've been seen here.</p>
       </div>
     </div>
+
+		<div id="contact-form-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cfLabel" aria-hidden="true">
+			<div class="modal-header">
+				<a href="#" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+				<h3 id="cfLabel">Contact Form</h3>
+			</div>
+			<div class="modal-body">
+    		<form id="contact-form" class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="name">Your Name</label>
+            <div class="controls">
+              <input type="text" class="span3" id="name" name="name" placeholder="Fred Bloggs">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="email">Email Address</label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-envelope"></i></span>
+                <input type="email" class="span3" id="email" name="email" placeholder="spam@beans.egg">
+              </div>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="subject">Subject</label>
+            <div class="controls">
+              <select class="span3" id="subject" name="subject">
+                <option></option>
+                <option>Flame</option>
+                <option>Praise</option>
+                <option>Pedant</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="message">Your Message</label>
+            <div class="controls">
+              <textarea class="span3" id="message" name="message" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" id="trollbox" name="trollbox"> Tick this if you are just trolling.
+              </label>
+            </div>
+          </div>
+        </form>
+			</div>
+			<div class="modal-footer">
+        <a href="#" id="contact-form-submit" class="btn btn-primary">Send</a>
+        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+			</div>
+		</div>
 
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/flipify.js"></script>
 
@@ -273,13 +330,48 @@
           $('#counter').flipify({
  	        	startTime: getStartTime()
   	  		});
+          $('#contact-form-submit').on('click', function(e){
+            e.preventDefault();
+            $('#contact-form').submit();
+          });
       		$('.theme-change').click(function() {
             var newTheme = $(this).attr('rel');
             themeChange(newTheme);
             $.cookie('theme', newTheme, {expires: 7});
           });
+          $('#contact-form').validate({
+            rules: {
+              name: {minlength: 2, maxlength: 64, required: true},
+              email: {email: true, maxlength: 128, required: true},
+              subject: {required: true},
+              message: {minlength: 2, maxlength: 256, required: true}
+            },
+            highlight: function(element) {
+              $(element).closest('.control-group').removeClass('success').addClass('error');
+            },
+            success: function(element) {
+              $(element).closest('.control-group').removeClass('error').addClass('success');
+            }
+          });
+          /*
+          // Since we want both pressing 'Enter' and clicking the button to work
+          // we'll subscribe to the submit event, which is triggered by both.
+          $('#contact-form').on('submit', function(){
+            //Serialize the form and post it to the server
+            $.post("/yourReceivingPage", $(this).serialize(), function() {
+              // When this executes, we know the form was submitted.
+              // To give some time for the animation, let's add a delay of 200 ms before the redirect.
+              setTimeout(function() {window.location.href = 'successUrl.html';}, 200);
+              // Hide the modal.
+              $("#contact-form-modal").modal('hide');
+            });
+            // Stop the normal form submission
+            return false;
+          });
+          */
         });
       } (window.jQuery);
+
     </script>
 
   </body>
