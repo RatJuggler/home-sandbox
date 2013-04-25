@@ -103,6 +103,6 @@ hr {
     width: 300px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    z-index: 1030;
+    z-index: 1035;
   }
 }
