@@ -135,7 +135,7 @@
           <p><a class="btn" href="https://dev.twitter.com/docs/twitter-for-websites" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
          <div class="span4">
-          <h2><i class="icon-tasks"></i> Web Cruft</h2>
+          <h2><i class="icon-check"></i> Web Cruft</h2>
           <p>Cookie warning, privacy policy, meta tags, robots.txt, sitemap.xml and various other bits and pieces you can have to supposedly improve a site.</p>
           <p><a class="btn" href="https://developers.google.com/webmasters/control-crawl-index/docs/getting_started" target="_blank">Details here <i class="icon-external-link"></i></a></p>
          </div>
@@ -153,6 +153,9 @@
           <p><a class="btn" href="http://divshot.github.io/geo-bootstrap/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
+          <h2><i class="icon-tasks"></i> Google Analytics</h2>
+          <p>It wouldn't be much of vanity page if I didn't have a way of tracking the multitudes of fans who visit this site.</p>
+          <p><a class="btn" href="http://www.google.co.uk/analytics/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
       </div>
       <hr/>
@@ -162,7 +165,7 @@
       <div class="row">
         <div class="span6">
           <h2><i class="icon-time"></i> Obsolescence Clock</h2>
-          <p>Things move fast with web technologies. This shows how long this site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
+          <p>Things move fast with web technologies. This clock shows how long the site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
           <p><a class="btn" href="https://github.com/stefancrain/Flipify.js" target="_blank">Details here <i class="icon-external-link"></i></a></p>
           <div id="counter"></div>
           <div>
