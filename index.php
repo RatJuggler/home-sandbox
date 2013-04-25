@@ -2,8 +2,6 @@
 <?php
   // Capture the start time so we can calculate how long the page took to prepare.
   $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php"));
-  // Check for a cookie to keep track of the page theme, set a default if not found.
-  if (!empty($_COOKIE["theme"])) {$theme = $_COOKIE["theme"];} else {$theme = "none";}
 ?>
 <html lang="en">
   <head>
@@ -13,11 +11,7 @@
     <meta name="description" content="A page for me to try out all the little bits and pieces that web designers have so much fun with.">
     <meta name="keywords" content="RatJuggler, John Chase, development, web design, vanity">
     <meta name="author" content="John Chase">
-<?php if ($theme == "none") { ?>
-    <link href="css/bootstrap.css" rel="stylesheet">
-<?php } else { ?>
-    <link href="css/bootstrap_1990s.css" rel="stylesheet">
-<?php } ?>
+    <link href="css/bootstrap.css" rel="stylesheet" title="Theme">
     <link href="css/override.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -47,9 +41,9 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Theme <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="theme-changer.php?theme=none">None</a></li>
+                  <li><a href="#" class="theme-change" rel="css/bootstrap.css">Default</a></li>
                   <li class="divider"></li>
-                  <li><a href="theme-changer.php?theme=1990s">The 1990s</a></li>
+                  <li><a href="#" class="theme-change" rel="css/bootstrap_1990s.css">The 1990s</a></li>
                 </ul>
               </li>
               <li><a href="https://twitter.com/share" class="twitter-button twitter-share-button" data-url="http://www.ratjuggler.co.uk/" data-text="Look at this great site: " data-count="horizontal">Tweet</a></li>
@@ -101,7 +95,7 @@
                This web site uses cookies for your comfort and convenience. Continued use of this site means you are happy with this usage.</p>
           </div>
           <p>My name is John Chase. This site is a desperate attempt to stick my head above the HTTP parapet and prove that I know at least something about modern web technologies.
-             Or at least the ability to Goggle, read and cut-n-paste other peoples code.
+             Or at least the ability to Google, read and cut-n-paste other peoples code.
              <a href="https://twitter.com/ratjuggler" class="twitter-follow-button" data-show-count="true">Follow @ratjuggler</a></p>
           <p><a href="#about" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
         </div>
@@ -250,21 +244,34 @@
       function cookieWarning() {
         var cookieStatus = $.cookie('cookie-warning');
         if (typeof cookieStatus === 'undefined') {
-            $("#cookie-warning a").click(function () {
-                $("#cookie-warning").slideUp();
-                $.cookie('cookie-warning', 'shown', {expires: 7});
-            });
-            $("#cookie-warning").slideDown();
+          $("#cookie-warning a").click(function () {
+            $("#cookie-warning").slideUp();
+            $.cookie('cookie-warning', 'shown', {expires: 7});
+          });
+          $("#cookie-warning").slideDown();
         }
+      }
+
+      function themeChange(newTheme) {
+        $('link[title="Theme"]').attr('href', newTheme);
       }
 
       !function ($) {
         $(function() {
+          var theme = $.cookie('theme');
+          if (typeof theme !== 'undefined') {
+            themeChange(theme);
+          }
           cookieWarning();
           $('#ratCarousel').carousel('cycle');
           $('#counter').flipify({
  	        	startTime: getStartTime()
   	  		});
+      		$('.theme-change').click(function() {
+            var newTheme = $(this).attr('rel');
+            themeChange(newTheme);
+            $.cookie('theme', newTheme, {expires: 7});
+          });
         });
       } (window.jQuery);
     </script>
