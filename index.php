@@ -148,14 +148,11 @@
           <p><a class="btn" href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
-          <h2><i class="icon-qrcode"></i> QR Code</h2>
-          <p>Use the QR code, below right, to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
-          <p><a class="btn" href="http://goqr.me/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+          <h2><i class="icon-magic"></i> Theme Changer</h2>
+          <p>I looked at several theme changers but ended up writing my own very simple one using JQuery. It's the alternative theme I really like.</p>
+          <p><a class="btn" href="http://divshot.github.io/geo-bootstrap/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
         <div class="span4">
-          <h2><i class="icon-time"></i> Obsolescence Clock</h2>
-          <p>Things move fast with web technologies. The clock at the bottom of the pages shows how long this site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
-          <p><a class="btn" href="https://github.com/stefancrain/Flipify.js" target="_blank">Details here <i class="icon-external-link"></i></a></p>
         </div>
       </div>
       <hr/>
@@ -164,7 +161,9 @@
     <section id="content" class="nav-point container">
       <div class="row">
         <div class="span6">
-          <h2>How long ago did I last change this site?</h2>
+          <h2><i class="icon-time"></i> Obsolescence Clock</h2>
+          <p>Things move fast with web technologies. This shows how long this site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
+          <p><a class="btn" href="https://github.com/stefancrain/Flipify.js" target="_blank">Details here <i class="icon-external-link"></i></a></p>
           <div id="counter"></div>
           <div>
             <span class="counter-legend">days</span>
@@ -174,8 +173,10 @@
           </div>
         </div>
         <div class="span6">
-          <div style="float: right;">
-            <h2>QR Code</h2><br/>
+          <h2><i class="icon-qrcode"></i> QR Code</h2>
+          <p>Use the QR code below to quickly find this site on a tablet or mobile device with a built-in camera. I used an internet site to generate a static code.</p>
+          <p><a class="btn" href="http://goqr.me/" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+          <div style="text-align: center;">
             <img alt="QR Code" src="img/qrcode150.png" />
           </div>
         </div>
