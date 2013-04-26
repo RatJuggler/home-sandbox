@@ -220,20 +220,20 @@
     </div>
 
 		<div id="contact-form-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cfLabel" aria-hidden="true">
-			<div class="modal-header">
-				<a href="#" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-				<h3 id="cfLabel">Contact Form</h3>
-			</div>
-			<div class="modal-body">
-    		<form id="contact-form" class="form-horizontal">
+      <form id="contact-form" class="modal-form form-horizontal">
+        <div class="modal-header">
+          <a href="#" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+          <h3 id="cfLabel">Contact Form</h3>
+        </div>
+        <div class="modal-body">
           <div class="control-group">
-            <label class="control-label" for="name">Your Name</label>
+            <label class="control-label" for="name">Your Name *</label>
             <div class="controls">
               <input type="text" class="input-xlarge" id="name" name="name" placeholder="Fred Bloggs">
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="email">Email Address</label>
+            <label class="control-label" for="email">Email Address *</label>
             <div class="controls">
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-envelope"></i></span>
@@ -242,7 +242,7 @@
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="subject">Subject</label>
+            <label class="control-label" for="subject">Subject *</label>
             <div class="controls">
               <select class="input-medium" id="subject" name="subject">
                 <option></option>
@@ -254,7 +254,7 @@
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="message">Your Message</label>
+            <label class="control-label" for="message">Your Message *</label>
             <div class="controls">
               <textarea class="input-xlarge" id="message" name="message" rows="3"></textarea>
             </div>
@@ -266,18 +266,32 @@
               </label>
             </div>
           </div>
-        </form>
-			</div>
-			<div class="modal-footer">
-        <a href="#" id="contact-form-submit" class="btn btn-primary">Send</a>
-        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
-			</div>
-		</div>
+          <div>* Are required.</div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" value="Send" class="btn btn-primary" />
+          <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+        </div>
+      </form>
+    </div>
+
+    <div id="error-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cfLabel" aria-hidden="true">
+      <div class="modal-header">
+        <h2><i class="icon-warning-sign"></i> Oh dear...</h2>
+      </div>
+      <div class="modal-body">
+        <p>Well this is embarrassing, there appears to be have been an error!</p>
+        <p>Any chance you can work out what has happened from the following:</p>
+        <pre id="error-text">Error message here...</pre>
+        <p>Or better still why not just try it again.</p>
+      </div>
+    </div>
 
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/flipify.js"></script>
 
@@ -332,15 +346,10 @@
           $('#ratCarousel').carousel('cycle');
           // Start the counter.
           $('#counter').flipify({
- 	        	startTime: getStartTime()
-  	  		});
-          // Turn the link on the contact form modal into a submit.
-          $('#contact-form-submit').on('click', function(e){
-            e.preventDefault();
-            $('#contact-form').submit();
+            startTime: getStartTime()
           });
           // Turn on the theme change links.
-      		$('.theme-change').click(function() {
+          $('.theme-change').click(function() {
             var newTheme = $(this).attr('rel');
             themeChange(newTheme);
             $.cookie('theme', newTheme, {expires: 7});
@@ -374,30 +383,17 @@
             },
             submitHandler: function(form) {
               $(form).ajaxSubmit({
-                url: "email.php", type:"post",
+                url: "email.php", type: "post", resetForm: true,
                 success: function() {
                   $('#contact-form-modal').modal('hide');
-                  alert('Sent!');
+                },
+                error: function(jqXHR, status, thrown) {
+                  $('#error-text').html(document.createTextNode('Status: ' + status + '\nError: ' + thrown + '\njqXHR: ' + JSON.stringify(jqXHR)));
+                  $('#error-modal').modal('show');
                 }
               });
             }
           });
-          /*
-          // Since we want both pressing 'Enter' and clicking the button to work
-          // we'll subscribe to the submit event, which is triggered by both.
-          $('#contact-form').on('submit', function(){
-            //Serialize the form and post it to the server
-            $.post("/yourReceivingPage", $(this).serialize(), function() {
-              // When this executes, we know the form was submitted.
-              // To give some time for the animation, let's add a delay of 200 ms before the redirect.
-              setTimeout(function() {window.location.href = 'successUrl.html';}, 200);
-              // Hide the modal.
-              $("#contact-form-modal").modal('hide');
-            });
-            // Stop the normal form submission
-            return false;
-          });
-          */
         });
       } (window.jQuery);
 
