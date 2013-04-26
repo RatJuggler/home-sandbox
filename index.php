@@ -229,7 +229,7 @@
           <div class="control-group">
             <label class="control-label" for="name">Your Name</label>
             <div class="controls">
-              <input type="text" class="span3" id="name" name="name" placeholder="Fred Bloggs">
+              <input type="text" class="input-xlarge" id="name" name="name" placeholder="Fred Bloggs">
             </div>
           </div>
           <div class="control-group">
@@ -237,14 +237,14 @@
             <div class="controls">
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-envelope"></i></span>
-                <input type="email" class="span3" id="email" name="email" placeholder="spam@beans.egg">
+                <input type="email" class="input-large" id="email" name="email" placeholder="spam@beans.egg">
               </div>
             </div>
           </div>
           <div class="control-group">
             <label class="control-label" for="subject">Subject</label>
             <div class="controls">
-              <select class="span3" id="subject" name="subject">
+              <select class="input-medium" id="subject" name="subject">
                 <option></option>
                 <option>Flame</option>
                 <option>Praise</option>
@@ -256,7 +256,7 @@
           <div class="control-group">
             <label class="control-label" for="message">Your Message</label>
             <div class="controls">
-              <textarea class="span3" id="message" name="message" rows="3"></textarea>
+              <textarea class="input-xlarge" id="message" name="message" rows="3"></textarea>
             </div>
           </div>
           <div class="control-group">
@@ -321,36 +321,65 @@
 
       !function ($) {
         $(function() {
+          // First check the theme cookie in case the theme is different to the default.
           var theme = $.cookie('theme');
           if (typeof theme !== 'undefined') {
             themeChange(theme);
           }
+          // Show the cookie warning if required.
           cookieWarning();
+          // Start the carousel.
           $('#ratCarousel').carousel('cycle');
+          // Start the counter.
           $('#counter').flipify({
  	        	startTime: getStartTime()
   	  		});
+          // Turn the link on the contact form modal into a submit.
           $('#contact-form-submit').on('click', function(e){
             e.preventDefault();
             $('#contact-form').submit();
           });
+          // Turn on the theme change links.
       		$('.theme-change').click(function() {
             var newTheme = $(this).attr('rel');
             themeChange(newTheme);
             $.cookie('theme', newTheme, {expires: 7});
           });
+          // Set the contact form validation.
           $('#contact-form').validate({
             rules: {
               name: {minlength: 2, maxlength: 64, required: true},
               email: {email: true, maxlength: 128, required: true},
               subject: {required: true},
-              message: {minlength: 2, maxlength: 256, required: true}
+              message: {minlength: 9, maxlength: 256, required: true}
+            },
+            messages: {
+              name: {
+                minlength: "How about your full name?",
+                required: "Please enter your name."
+              },
+              email: "Please enter a valid email address.",
+              subject: "You need to pick one.",
+              message: {
+                minlength: "What are you trying to say?",
+                maxlength: "I was hoping for a comment, not an essay.",
+                required: "Please enter a short statement reflecting your thoughts."
+              }
             },
             highlight: function(element) {
               $(element).closest('.control-group').removeClass('success').addClass('error');
             },
             success: function(element) {
               $(element).closest('.control-group').removeClass('error').addClass('success');
+            },
+            submitHandler: function(form) {
+              $(form).ajaxSubmit({
+                url: "email.php", type:"post",
+                success: function() {
+                  $('#contact-form-modal').modal('hide');
+                  alert('Sent!');
+                }
+              });
             }
           });
           /*
