@@ -1,12 +1,3 @@
-function pad(n) {
-  return n<10 ? '0'+n : n;
-}
-
-function getStartTime() {
-  oTime = new Date(Date.parse('<?php echo date("c",filemtime("index.php")); ?>'));
-  return pad(oTime.days) + ':' + pad(oTime.hours) + ':' + pad(oTime.minutes) + ':' + pad(oTime.seconds);
-}
-
 function cookieWarning() {
   var cookieStatus = $.cookie('cookie-warning');
   if (typeof cookieStatus === 'undefined') {

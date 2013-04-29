@@ -288,7 +288,14 @@
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
 
+    <script>
+      // Start time for Obsolescence clock must come from date of this file.
+      function getStartTime() {
+        return new Date(Date.parse('<?php echo date("c",filemtime("index.php")); ?>'));
+      }
+    </script>
+
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>
