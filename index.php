@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
   // Capture the start time so we can calculate how long the page took to prepare.
-  $mtStart = microtime(true); $dtFile = date("c",filemtime("index.php"));
+  $mtStart = microtime(true);
 ?>
 <html lang="en">
   <head>
@@ -166,7 +166,7 @@
       <div class="row">
         <div class="span6">
           <h2><i class="icon-time"></i> Obsolescence Clock</h2>
-          <p>Things move fast with web technologies. This clock shows how long the site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
+          <p>Things move fast with web technologies. This clock shows how long the site has been up and running since it was last changed. As you might have guessed it's another JQuery component.</p>
           <p><a class="btn" href="http://keith-wood.name/countdown.html" target="_blank">Details here <i class="icon-external-link"></i></a></p>
           <div id="counter"></div>
         </div>

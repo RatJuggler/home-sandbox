@@ -1,22 +1,9 @@
-function calcTimeDifference(oldTime, newTime) {
-  var msDiff = newTime.getTime() - oldTime.getTime();
-  var oResult = new Object();
-  oResult.days = Math.floor(msDiff/1000/60/60/24);
-  msDiff -= oResult.days*1000*60*60*24;
-  oResult.hours = Math.floor(msDiff/1000/60/60);
-  msDiff -= oResult.hours*1000*60*60;
-  oResult.minutes = Math.floor(msDiff/1000/60);
-  msDiff -= oResult.minutes*1000*60;
-  oResult.seconds = Math.floor(msDiff/1000);
-  return oResult;
-}
-
 function pad(n) {
   return n<10 ? '0'+n : n;
 }
 
 function getStartTime() {
-  oTime = calcTimeDifference(new Date(Date.parse('<?php echo $dtFile; ?>')), new Date());
+  oTime = new Date(Date.parse('<?php echo date("c",filemtime("index.php")); ?>'));
   return pad(oTime.days) + ':' + pad(oTime.hours) + ':' + pad(oTime.minutes) + ':' + pad(oTime.seconds);
 }
 
@@ -54,7 +41,7 @@ function themeChange(newTheme) {
       themeChange(newTheme);
       $.cookie('theme', newTheme, {expires: 7});
     });
-    // Set the contact form validation.
+    // Set the contact form validation and submit handler.
     $('#contact-form').validate({
 /*            rules: {
         name: {minlength: 2, maxlength: 64, required: true},
