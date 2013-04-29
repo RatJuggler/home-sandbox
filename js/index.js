@@ -47,9 +47,7 @@ function themeChange(newTheme) {
     // Start the carousel.
     $('#ratCarousel').carousel('cycle');
     // Start the counter.
-    $('#counter').flipify({
-      startTime: getStartTime()
-    });
+    $('#counter').countdown({since: getStartTime(), format: 'YMDHMS'});
     // Turn on the theme change links.
     $('.theme-change').click(function() {
       var newTheme = $(this).attr('rel');

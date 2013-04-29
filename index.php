@@ -15,6 +15,7 @@
     <link href="css/override.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/jquery.countdown.css" rel="stylesheet">
     <link rel="icon" href="ico/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128" type="image/vnd.microsoft.icon">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -166,15 +167,8 @@
         <div class="span6">
           <h2><i class="icon-time"></i> Obsolescence Clock</h2>
           <p>Things move fast with web technologies. This clock shows how long the site has been up and running since it was last changed. Code for the clock found on GitHub.</p>
-          <p><a class="btn" href="https://github.com/stefancrain/Flipify.js" target="_blank">Details here <i class="icon-external-link"></i></a></p>
+          <p><a class="btn" href="http://keith-wood.name/countdown.html" target="_blank">Details here <i class="icon-external-link"></i></a></p>
           <div id="counter"></div>
-          <div>
-            <span class="counter-legend">days</span>
-            <span class="counter-legend">hours</span>
-            <span class="counter-legend">minutes</span>
-            <span class="counter-legend">seconds</span>
-          </div>
-          <div class="clearfix"></div>
         </div>
         <div class="span6">
           <h2><i class="icon-qrcode"></i> QR Code</h2>
@@ -237,7 +231,7 @@
             <div class="controls">
               <div class="input-prepend">
                 <span class="add-on"><i class="icon-envelope"></i></span>
-                <input type="email" class="input-large" id="email" name="email" placeholder="spam@beans.egg">
+                <input type="email" class="input-xlarge" id="email" name="email" placeholder="spam@beans.egg">
               </div>
             </div>
           </div>
@@ -290,10 +284,10 @@
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script type="text/javascript" src="js/jquery.form.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/flipify.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 
   </body>

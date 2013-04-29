@@ -42,16 +42,6 @@ hr {
 
 /* Additional styles to tweak the page presentation. */
 
-.cntSeparator {
-  font-size: 54px;
-  padding-top: 25px;
-}
-
-.counter-legend {
-  float: left;
-  width: 121px;
-}
-
 .gandi-footer {
   width: 84px;
   height: 25px;
