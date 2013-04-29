@@ -23,7 +23,7 @@
 
   <body>
 
-    <?php include_once("analyticstracking.php") ?>
+<?php include_once("analyticstracking.php") ?>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -222,7 +222,7 @@
 		<div id="contact-form-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="cfLabel" aria-hidden="true">
       <form id="contact-form" class="modal-form form-horizontal">
         <div class="modal-header">
-          <a href="#" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+          <a id="contact-form-close" href="#" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
           <h3 id="cfLabel">Contact Form</h3>
         </div>
         <div class="modal-body">
@@ -269,8 +269,8 @@
           <div>* Are required.</div>
         </div>
         <div class="modal-footer">
-          <input type="submit" value="Send" class="btn btn-primary" />
-          <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+          <button id="contact-form-submit" type="submit" class="btn btn-primary" data-loading-text="<i class='icon-spinner icon-spin icon-large'></i> Sending">Submit</button>
+          <a id="contact-form-cancel" href="#" class="btn" data-dismiss="modal">Cancel</a>
         </div>
       </form>
     </div>
@@ -356,12 +356,12 @@
           });
           // Set the contact form validation.
           $('#contact-form').validate({
-            rules: {
+/*            rules: {
               name: {minlength: 2, maxlength: 64, required: true},
               email: {email: true, maxlength: 128, required: true},
               subject: {required: true},
               message: {minlength: 9, maxlength: 256, required: true}
-            },
+            },*/
             messages: {
               name: {
                 minlength: "How about your full name?",
@@ -382,10 +382,18 @@
               $(element).closest('.control-group').removeClass('error').addClass('success');
             },
             submitHandler: function(form) {
+              $('#contact-form-submit').button('loading');
+              $('#contact-form-cancel').prop('disabled', true);
+              $('#contact-form-close').prop('disabled', true);
+              $("#contact-form :input").prop("disabled", true);
               $(form).ajaxSubmit({
-                url: "email.php", type: "post", resetForm: true,
+                url: "contactemail.php", type: "post", resetForm: true,
                 success: function() {
                   $('#contact-form-modal').modal('hide');
+                  $("#contact-form :input").prop("disabled", false);
+                  $('#contact-form-close').prop('disabled', false);
+                  $('#contact-form-cancel').prop('disabled', false);
+                  $('#contact-form-submit').button('reset');
                 },
                 error: function(jqXHR, status, thrown) {
                   $('#error-text').html(document.createTextNode('Status: ' + status + '\nError: ' + thrown + '\njqXHR: ' + JSON.stringify(jqXHR)));
@@ -396,7 +404,6 @@
           });
         });
       } (window.jQuery);
-
     </script>
 
   </body>
